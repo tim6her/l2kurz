@@ -1,4 +1,4 @@
-%!TEX root = l2kurz.tex
+%!TEX root = l2kurz-Tutorium.tex
 
 % master: l2kurz.tex
 % l2k6.tex - 6.Teil der LaTeX2e-Kurzbeschreibung v2.3
@@ -163,51 +163,5 @@ Lindenallee 10 \\[1.5ex]
 
 % \todo[inline]{PG: hier eine kurze Erwähnung von TikZ und anschließend ein Bild, ohne große Erklärung? Hast du ein griffiges Beispiel oder sollen wir auf tex.sx nach einem fragen? Mehr als eine Seite würde ich auf keinen Fall damit verbrauchen, lieber mit einer Aufzählung, welche Vorteile sowas hat (Schriftart/Farben wie im Dokument, Grafik und Quelle sind beieinander, oftmals genauer als Zeichenprogramme, Verbindungen mit dem Text möglich) - aber auch hier Nachteil: Einarbeitung}
 
-
-
-\subsection{Literaturangaben}
-
-Mit der \texttt{thebibliography}-Umgebung kann man ein
-Literaturverzeichnis erzeugen.
-Darin beginnt jede Literaturangabe mit \lstinline|\bibitem|.
-Als Parameter wird ein Name vereinbart, unter dem die
-Literaturstelle im Text zitiert werden kann, und
-dann folgt der Text der Literaturangabe.
-Die Nummerierung erfolgt automatisch.
-Der Parameter bei \lstinline|\begin{thebibliography}| gibt die
-maximale Breite dieser Nummernangabe an, also z.\,B.\
-\lstinline|{99}| für maximal zweistellige Nummern.
-
-Im Text zitiert man die Literaturstelle dann mit dem Befehl \lstinline|\cite|
-und dem vereinbarten Namen als Argument.
-
-\let\origcite\cite
-\begin{LTXexample}[preset=\let\cite\origcite]
-Partl~\cite{pa} hat
-vorgeschlagen ...
-
-\begin{thebibliography}{99}
-\bibitem{pa}
-H.~Partl: \textit{German \TeX,}
-TUGboat Vol.~9, No.~1 (1988)
-\end{thebibliography}
-\end{LTXexample}
-
-Werden viele Literatureinträge zitiert bzw. verwendet, bietet sich die Nutzung
-einer Datenbank an. Die Datenbank besitzt ihre eigene Syntax,
-um die benötigten Literatureinträge zu verwalten. Für die komfortable Verwaltung
-von Literaturdatenbanken existieren viele Programme wie beispielsweise JabRef (frei) oder
-Endnote (kommerziell). Die Datenbank ist im eigentlichen Sinne eine Textdatei mit
-Endung \lstinline|bib|.
-
-
-Für die Verarbeitung dieser Literaturdatenbanken bieten sich zwei verschiedene
-Hilfsmittel für \LaTeX{} an. Die klassische Variante ist \emph{Bib\TeX} in Verbindung
-mit einem Literaturverzeichnisstil. Die Anpassung an die eigenen Bedürfnisse
-gestaltet sich mehr als schwierig. Daher wurde in den letzten Jahren das \LaTeX{}
-Makropaket \emph{biblatex} entwickelt, das alternativ zu \emph{Bib\TeX} das mächtigere
-Programm \emph{biber} nutzen kann. Das Makropaket \emph{biblatex} erlaubt die Manipulation
-des Literaturverzeichnisses auf \LaTeX"=Ebene. Auf CTAN ist eine deutsche Übersetzung der Dokumenation
-verfügbar \cite{biblatex-de}.
 
 \endinput

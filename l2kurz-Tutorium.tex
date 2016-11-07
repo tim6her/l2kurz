@@ -15,7 +15,7 @@
 
 %: Start Header
 \documentclass[11pt,a4paper]{article} % ergaenze `twoside', wenn gewuenscht!
-\NeedsTeXFormat{LaTeX2e}[1998/06/01]  % wegen \mathring und Textsymbolen
+%\NeedsTeXFormat{LaTeX2e}[1998/06/01]  % wegen \mathring und Textsymbolen
 
 % Seitenlayout:
 \usepackage{geometry}
@@ -94,6 +94,8 @@
 }
 \makeatother
 
+
+\usepackage{wasysym}
 \usepackage{xcolor}
 % für todo-notes, kann später raus
 \colorlet{done}{green!40}
@@ -133,7 +135,16 @@
           {ß}{{\ss}}1
           {ü}{{\"u}}1
           {ä}{{\"a}}1
-          {ö}{{\"o}}1,
+          {ö}{{\"o}}1
+          {â}{{\^a}}1
+          {é}{{\'e}}1
+          {ð}{{\dh}}1
+          {æ}{{\ae}}1
+          {ô}{{\^o}}1
+          {ï}{{\"\i}}1
+          {ø}{{\o}}1
+          {ñ}{{\~n}}1
+          {♫}{{\twonotes}}1,
 }
 
 \lstnewenvironment{example}[1][]
@@ -147,8 +158,9 @@
 \usepackage[pdfpagelabels,pageanchor=false, linktoc=all]{hyperref}
 
 \hypersetup{%
-  pdftitle={LaTeX2e-Kurzbeschreibung},
-  pdfauthor={Marco Daniel, Patrick Gundlach, Walter Schmidt et al.}}
+  pdftitle={LaTeX-Tutorium},
+  pdfauthor={Tim Herbstrith},
+  pdfsubject={Basierend auf Marco Daniel, Patrick Gundlach, Walter Schmidt et al.: "LaTeX2e-Kurzbeschreibung"}}
 
 
 
@@ -246,6 +258,12 @@
 \clearpage
 %: Schriften
 \input{schriften}
+\clearpage
+%: Umgebungen für Theoreme
+\input{theoreme}
+\clearpage
+%: Literaturverzeichnis
+\input{literatur}
 \clearpage
 %: Spezialitäten
 \input{spezialitaeten}

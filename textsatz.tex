@@ -1,4 +1,4 @@
-%!TEX root = l2kurz.tex
+%!TEX root = l2kurz-Tutorium.tex
 % Siehe https://github.com/texdoc/l2kurz
 
 \section{Setzen von Text}
@@ -204,7 +204,7 @@ und
 \end{verbatim}
 \exc
 In den Zeichensätzen mancher Rechner (z.\,B. Macintosh) sind die deutschen
-Anführungszeichen enthalten.  Das Paket \texttt{selinput} (siehe
+Anführungszeichen enthalten.  Das Paket \texttt{inputenc} (siehe
 Abschnitt~\ref{inputenc}) erlaubt dann, sie auch direkt einzugeben.
 
 Das Paket \texttt{csquotes} erlaubt die indirekte Eingabe von Anführungszeichen, die automatisch korrekt geschachtelt werden. Zitate werden mit \lstinline|\enquote{|\textit{Text}\lstinline|}| ausgezeichnet:
@@ -337,10 +337,7 @@ Es steht auch ein Befehl \lstinline|\textcircled| für
 eingekreiste Zeichen zur Verfügung.
 
 \begin{LTXexample}
-H\^otel, na\"\i ve, sm\o rebr\o d. \\
-Die h\"assliche Stra\ss{}e.\\
-!`Se\~norita!\\
-\textcircled{x}
+H\^otel, na\"\i ve, sm\o rebr\o d.
 \end{LTXexample}
 
 
@@ -375,9 +372,13 @@ Die h\"assliche Stra\ss{}e.\\
 \end{table}
 
 
-Benutzt man das Paket \texttt{selinput} (siehe Abschnitt~\vref{inputenc}),
+Benutzt man das Paket \texttt{inputenc} mit der Option \texttt{utf8} (siehe Abschnitt~\vref{inputenc}),
 dann darf man diese Zeichen -- soweit sie im Zeichensatz des Betriebssystems
 existieren -- auch direkt in das Eingabefile schreiben.
+
+\begin{LTXexample}
+Hôtel, naïve, smørebrød. 
+\end{LTXexample}
 
 Mit dem Paket \texttt{babel} und der Option \texttt{ngerman} bzw \texttt{german}
 können
@@ -394,6 +395,7 @@ Diese Notation wurde eingeführt, als die direkte Eingabe und
 Anzeige von Umlauten auf vielen Rechnersystemen noch nicht möglich war.
 Als Quasi-Standard zum plattformübergreifenden Austausch von
 \TeX- und \LaTeX"=Dokumenten ist sie aber nach wie vor nützlich.
+Weiters ist diese Notation auch äußerst praktisch, wenn man Tastaturen verwendet, die keine direkte Eingabe dieser Zeichen zulassen.
 
 \subsection{Kapitel und Überschriften}
 
@@ -540,18 +542,7 @@ die richtige Reihenfolge beachtet werden:
 Die \texttt{quote}-Umgebung eignet sich für kürzere Zitate,
 hervorgehobene Sätze und Beispiele.
 Der Text wird links und rechts eingerückt.
-%\exa
-%Eine typographische Faustregel
-%für die Zeilenlänge lautet:
-%\begin{quote}
-%
-%Keine Zeile soll mehr als
-%ca.\ 66~Buchstaben enthalten.
-%\end{quote}
-%Deswegen werden in Zeitungen
-%mehrere Spalten nebeneinander
-%verwendet.
-%\exb
+
 \begin{LTXexample}
 Eine typographische Faustregel
 für die Zeilenlänge lautet:
@@ -698,7 +689,7 @@ verwendet werden.
 
 \subsubsection{Tabulatoren (tabbing)} \label{tabbing}
 
-% PG: hehe, "Schreibmaschinen" - wer kennt die denn überhaupt noch?
+
 In der \texttt{tabbing}-Umgebung kann man Tabulatoren ähnlich wie
 an Schreibmaschinen setzen und verwenden.
 Der Befehl~\lstinline|\=| setzt eine Tabulatorposition,
@@ -709,19 +700,6 @@ und \lstinline|\\| trennt die Zeilen. Entgegen der im nächsten Abschnitt
 vorgestellten Umgebungen \texttt{array} und \texttt{tabular} erlaubt
 die \texttt{tabbing}-Umgebung einen Seitenumbruch.
 
-%
-%\exa
-%\begin{tabbing}
-%war einmal\quad \=
-% Mittelteil\quad \= \kill
-%links \> Mittelteil \> rechts\\
-%Es \\
-%war einmal \> und ist
-% \> nicht mehr\\
-%ein  \>  \> ausgestopfter\\
-% \>  \> Teddybär
-%\end{tabbing}
-%\exb
 \begin{LTXexample}
 \begin{tabbing}
 war einmal\quad \=
