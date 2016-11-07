@@ -1,19 +1,36 @@
-README for l2kurz
-=================
-This repository contains the German version of l2short - a short introduction to LaTeX. The original version is located on [CTAN:info/lshort/german](http://mirror.ctan.org/info/lshort/german) and is copyright by Walter Schmidt and others and released under the terms of the Open Publication License (V1.0 or later), see http://opencontent.org/openpub/.
+# LaTeX-Tutorium
 
-This project is dormant in the sense that we don't activly waork on the project.  Anybody is welcome to contribute. Just drop us a note and we can give write permission or merge your changes.
+Dieses Dokument basiert auf
 
+LaTeX2e-Kurzbeschreibung, Version 3.0a, 9. Juni 2015, 
+Copyright © 1998–2012 M. Daniel,
+P. Gundlach, W. Schmidt, J. Knappen, H. Partl, I. Hyna veröffentlicht
+unter der *Open Publication License*, v1.0 oder später (die aktuelle
+Version ist erhältlich unter <http://www.opencontent.org/openpub/>)
 
-Contact: Patrick Gundlach, patrick@gundla.ch<br>
-This repository: https://github.com/texdoc/l2kurz
+und wurde für das LaTeX-Tutorium von T. B. Herbstrith bearbeitet und
+ergänzt.
 
+Die Bearbeitung erfolgte unter Einhaltung der Lizenzbestimmungen aber
+*ohne* individuelle Zustimmung zu den Änderungen durch die Autoren und
+Autorinnen des Originaldokuments.
 
-README für l2kurz
-=================
-Dieses Repository enthält die LaTeX Kurzbeschreibung von Walter Schmidt (und anderen). Der Inhalt ist stellenweise nicht mehr aktuell und bedarf einer Überarbeitung. Diese Version hat als Ursprung die Version von [CTAN:info/lshort/german](http://mirror.ctan.org/info/lshort/german) vom 10. April 2003. Die Dokumentation unterliegt der Open Publication License (V1.0 or höher), siehe http://opencontent.org/openpub/.
+<span> This material may be distributed only subject to the terms and
+conditions set forth in the *Open Publication License*, v1.0 or later
+(the latest version is presently available at
+<http://www.opencontent.org/openpub/>).</span>
 
-Das Projekt ruht derzeit im dem Sinne, dass wir nur noch Tippfehler korrigieren. Jeder ist willkommen, Änderungen beizusteuern. Einfach eine Nachricht schicken und wir geben Schreibzugriff auf das Repsitory oder wir pflegen eure Änderungen ein.
+Die in dieser Publikation erwähnten Software- und
+Hardware-Bezeichnungen sind in den meisten Fällen auch eingetragene
+Warenzeichen und unterliegen als solche den gesetzlichen Bestimmungen.
 
-Kontakt: Patrick Gundlach, patrick@gundla.ch<br>
-Dieses Repository: https://github.com/texdoc/l2kurz
+Dieses Dokument wurde mit LaTeX gesetzt. Es ist als Quelltext online
+erhältlich:
+<https://github.com/tim6her/l2kurz>
+
+Das Originaldokument ist als Quelltext und im PDF-Format online
+erhältlich:
+<http://mirror.ctan.org/info/lshort/german/>
+
+Die Änderungen gegenüber dem Originaldokument sind unter
+<https://github.com/tim6her/l2kurz/blob/master/CHANGES> einzusehen.
