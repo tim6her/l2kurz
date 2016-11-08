@@ -33,6 +33,22 @@
 % marginpar=5cm,
 %}
 
+
+\usepackage{amsthm, thmtools}
+
+\declaretheorem[
+name=Theorem,
+numberwithin=section
+]{thm}
+\declaretheorem[
+name=Lemma,
+numberwithin=section
+]{lem0}
+\declaretheorem[
+name=Lemma,
+sibling=thm,
+]{lem}
+
 \usepackage[USenglish,ngerman]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -45,7 +61,7 @@
 \usepackage{array,longtable,tabularx,booktabs}
 \usepackage{enumitem}
 
-\usepackage{amsmath}
+\usepackage{amsmath, amssymb}
 
 \usepackage{caption}
 \makeatletter

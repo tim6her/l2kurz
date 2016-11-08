@@ -1,3 +1,105 @@
 %!TEX root = l2kurz-Tutorium.tex
 
 \section{Umgebungen für Theoreme, Definitionen u.\,dgl.}]
+
+Im Gegensatz zu anderen Texten folgen mathematische Arbeiten oft einer strengen Gliederung in Definitionen, Theoreme, Lemmata, Beweise, Beispiele, etc.\@ Das Paket \texttt{thmtools} erlaubt das einfache Erstellen von Umgebungen, die diese Gliederung herstellen. Die Definition dieser Umgebungen folgt einem einfachen Schema, dass wir uns im Listing~\ref{thm environments} genauer ansehen.
+
+\begin{figure*}
+\begin{example}[caption={Beispiel für die Definition von Theoremumgebungen},
+label={thm environments}]
+\declaretheorem[
+    name=Theorem,
+    numberwithin=section
+    ]{thm}
+	
+\declaretheorem[
+    name=Lemma,
+    numberwithin=section
+    ]{lem0}
+\end{example}
+\end{figure*}
+
+Die erste Definition implementiert eine Umgebung für Theoreme, sie wird mit \cs{begin\{thm\}} geöffnet (Das ist der Ausdruck in den geschwungenen Klammern.). Weiters wird festgelegt, dass die Umgebung "`Theorem"' heißt und ihre Nummerierung am Anfang jedes Abschnittes zurückgesetzt wird. Genau so definiert man eine Umgebung für Lemmata (\texttt{lem}). Sehen wir uns ein Beispiel an.
+
+\begin{LTXexample}[firstline=3]
+\setcounter{thm}{0}
+\setcounter{lem0}{0}
+\begin{lem0}
+    Sei $n \in \mathbb Z$ 
+    beliebig, dann ist $n^2$ 
+    genau dann gerade 
+    falls $n$ gerade ist.
+\end{lem0}
+
+\begin{thm}
+    Die Wurzel aus $2$ ist 
+    irrational.
+\end{thm}
+\end{LTXexample}
+
+Einen kleinen Schönheitsfehler hat diese Konstruktion allerdings: Die Lemmata und Theoreme sollten gemeinsam nummeriert werden. Zu diesem Zweck stellt der Befehl \cs{declaretheorem} die Option \texttt{sibling} zur Verfügung. Wir definieren die Umgebung für Lemmata mit dieser Option neu:
+
+\begin{example}
+\declaretheorem[
+    name=Lemma,
+    sibling=thm,
+]{lem}
+\end{example}
+
+Im obigen Beispiel erhält man nun den folgenden Output.
+
+\begin{LTXexample}[firstline=2]
+\setcounter{thm}{0}
+\begin{lem}
+    Sei $n \in \mathbb Z$ 
+    beliebig, dann ist $n^2$ 
+    genau dann gerade 
+    falls $n$ gerade ist.
+\end{lem}
+
+\begin{thm}
+    Die Wurzel aus $2$ ist 
+    irrational.
+\end{thm}
+\end{LTXexample}
+
+Im Paket \texttt{amsthm} ist automatisch eine Umgebung für Beweise namens \texttt{proof} integriert, sodass wir das Lemma einfach beweisen können. Die Umgebung wird automatisch mit einem Beweisendezeichen ($\square$) beendet. Weitere Details zu dieser Umgebung finden sich in \cite{amsthm}.
+
+\begin{LTXexample}[firstline=3]
+\setcounter{thm}{0}
+\setcounter{lem0}{0}
+\begin{lem0}
+    Sei $n \in \mathbb Z$ 
+    beliebig, dann ist $n^2$ 
+    genau dann gerade 
+    falls $n$ gerade ist.
+\end{lem0}
+
+\begin{proof}
+    Wenn $n$ gerade ist, 
+    so existiert eine 
+    weitere ganze Zahl $k$,
+    sodass $n = 2 k$ gilt. 
+    Durch Quadrieren erhält 
+    man $n^2 = 4 k^2$ und 
+    $n^2$ ist gerade.
+    
+    Ist andererseits $n$ 
+    ungerade, so gibt es ein 
+    $k \in \mathbb Z$, sodass 
+    $n = 2 k + 1$ gilt. 
+    Es folgt die Identität 
+    \[n^2 = 4 k (k + 1) + 1\] 
+    und $n^2$ ist ungerade.
+\end{proof}
+
+\begin{thm}
+    Die Wurzel aus $2$ ist 
+    irrational.
+\end{thm}
+\end{LTXexample}
+
+Die Paketdokumentation \cite{thmtools} zu \texttt{thmtools} beschreibt noch viele weitere Anpassungsmöglichkeiten.
+
+
+
