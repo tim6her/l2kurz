@@ -1,4 +1,15 @@
 ============================================================
+Aenderungen fuer das LaTeX-Tutorium 2016-11 (TBH)
+
+* Dateiname wurde auf l2kurz-Tutorium geändert.
+
+* Teil zu Theorem-Umgebungen verfasst
+
+* Bibliographien sind ein eigener Teil
+
+* Empfehlung \usepackage[utf8]{inputenc} statt
+  \usepackage{selinput zu verwenden}
+============================================================
 Aenderungen von Version 2.3 zu 3.0  2012-07 (MD, PGU)
 
 Auf aktuelle Gegebenheiten angepasst. Änderungen siehe
