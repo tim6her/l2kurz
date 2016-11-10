@@ -2,11 +2,19 @@
 
 \section{Umgebungen für Theoreme, Definitionen u.\,dgl.}]
 
-Im Gegensatz zu anderen Texten folgen mathematische Arbeiten oft einer strengen Gliederung in Definitionen, Theoreme, Lemmata, Beweise, Beispiele, etc.\@ Das Paket \texttt{thmtools} erlaubt das einfache Erstellen von Umgebungen, die diese Gliederung herstellen. Die Definition dieser Umgebungen folgt einem einfachen Schema, dass wir uns im Listing~\ref{thm environments} genauer ansehen.
+Im Gegensatz zu anderen Texten folgen mathematische Arbeiten oft einer strengen Gliederung in Definitionen, Theoreme, Lemmata, Beweise, Beispiele, etc.\@ Das Paket \texttt{thmtools} erlaubt das einfache Erstellen von Umgebungen, die diese Gliederung herstellen.
+Um das Paket \texttt{thmtools} verwenden zu können ist ein Backend notwendig.
+Dazu wird das Paket \texttt{amsthm} geladen (siehe \cite{amsthm}).
+
+
+Die Definition dieser Umgebungen folgt einem einfachen Schema, dass wir uns im Listing~\ref{thm environments} genauer ansehen.
 
 \begin{figure*}
 \begin{example}[caption={Beispiel für die Definition von Theoremumgebungen},
 label={thm environments}]
+\usepackage{amsthm} % Immer zuerst!
+\usepackage{thmtools}
+
 \declaretheorem[
     name=Theorem,
     numberwithin=section
@@ -19,7 +27,9 @@ label={thm environments}]
 \end{example}
 \end{figure*}
 
-Die erste Definition implementiert eine Umgebung für Theoreme, sie wird mit \cs{begin\{thm\}} geöffnet (Das ist der Ausdruck in den geschwungenen Klammern.). Weiters wird festgelegt, dass die Umgebung "`Theorem"' heißt und ihre Nummerierung am Anfang jedes Abschnittes zurückgesetzt wird. Genau so definiert man eine Umgebung für Lemmata (\texttt{lem}). Sehen wir uns ein Beispiel an.
+Die erste Definition implementiert eine Umgebung für Theoreme, sie wird mit \cs{begin\{thm\}} geöffnet (Das ist der Ausdruck in den geschwungenen Klammern.).
+Weiters wird festgelegt, dass die Umgebung "`Theorem"' heißt und ihre Nummerierung am Anfang jedes Abschnittes zurückgesetzt wird.
+Genau so definiert man eine Umgebung für Lemmata (\texttt{lem}). Sehen wir uns ein Beispiel an.
 
 \begin{LTXexample}[firstline=3]
 \setcounter{thm}{0}
@@ -37,13 +47,14 @@ Die erste Definition implementiert eine Umgebung für Theoreme, sie wird mit \cs
 \end{thm}
 \end{LTXexample}
 
-Einen kleinen Schönheitsfehler hat diese Konstruktion allerdings: Die Lemmata und Theoreme sollten gemeinsam nummeriert werden. Zu diesem Zweck stellt der Befehl \cs{declaretheorem} die Option \texttt{sibling} zur Verfügung. Wir definieren die Umgebung für Lemmata mit dieser Option neu:
+Einen kleinen Schönheitsfehler hat diese Konstruktion allerdings: Die Lemmata und Theoreme sollten gemeinsam nummeriert werden. Zu diesem Zweck stellt der Befehl \cs{declaretheorem} die Option \texttt{sibling} zur Verfügung.
+Wir definieren die Umgebung für Lemmata mit dieser Option neu:
 
 \begin{example}
 \declaretheorem[
     name=Lemma,
     sibling=thm,
-]{lem}
+    ]{lem}
 \end{example}
 
 Im obigen Beispiel erhält man nun den folgenden Output.
@@ -63,7 +74,10 @@ Im obigen Beispiel erhält man nun den folgenden Output.
 \end{thm}
 \end{LTXexample}
 
-Im Paket \texttt{amsthm} ist automatisch eine Umgebung für Beweise namens \texttt{proof} integriert, sodass wir das Lemma einfach beweisen können. Die Umgebung wird automatisch mit einem Beweisendezeichen ($\square$) beendet. Weitere Details zu dieser Umgebung finden sich in \cite{amsthm}.
+Möchte man ganz auf die Nummerierung verzichten, setzt man die Option \verb|numbered = no|.
+Im Paket \texttt{amsthm} ist automatisch eine Umgebung für Beweise namens \texttt{proof} integriert, sodass wir das Lemma einfach beweisen können.
+Die Umgebung wird automatisch mit einem Beweisendezeichen ($\square$) beendet.
+Weitere Details zu dieser Umgebung finden sich in \cite{amsthm}.
 
 \begin{LTXexample}[firstline=3]
 \setcounter{thm}{0}
@@ -92,11 +106,37 @@ Im Paket \texttt{amsthm} ist automatisch eine Umgebung für Beweise namens \text
     \[n^2 = 4 k (k + 1) + 1\] 
     und $n^2$ ist ungerade.
 \end{proof}
+\end{LTXexample}
 
-\begin{thm}
-    Die Wurzel aus $2$ ist 
-    irrational.
-\end{thm}
+
+Der Text innerhalb der Umgebungen, die wir mit \cs{declaretheorem} definiert haben, \emph{kursiv} gesetzt wird. Dies ist für Theoreme und verwandte mathematische Aussagen üblich, nicht jedoch für Definitionen, Bemerkungen oder Beispiele.
+Das Paket \texttt{thmtools} stellt zwei vordefinierte Stile -- \texttt{definition} und \texttt{remark} -- zur Verfügung, die den üblichen Stilregeln entsprechen.
+
+\begin{example}
+\declaretheorem[
+    name=Definition,
+    style=definition,
+    numbered=no,
+    ]{defin}
+\end{example}
+
+\begin{LTXexample}
+\begin{defin}
+    Die Menge der rationalen 
+    Zahlen $\mathbb Q$ ist die 
+    Menge aller 
+    \"Aquivalenzklassen der
+    Menge
+    \[\lbrace (a, b) \mid 
+    a, b \in \mathbb Z, 
+    b \neq 0\rbrace\]
+    bezüglich der 
+    \"Aquivalenzrelation
+    \[(a, b) \sim (c, d) 
+    :\Leftrightarrow
+    ad = cb.
+    \]
+\end{defin}
 \end{LTXexample}
 
 Die Paketdokumentation \cite{thmtools} zu \texttt{thmtools} beschreibt noch viele weitere Anpassungsmöglichkeiten.
