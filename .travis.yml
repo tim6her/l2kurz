@@ -4,9 +4,11 @@ before_install:
 - sudo apt-get -qq update && sudo apt-get install -y texlive-fonts-recommended
   texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended
   texlive-lang-german lmodern
+- wget http://mirrors.ctan.org/biblio/bibtex/contrib/german/din1505/unsrtdin.bst
+- sudo apt-get install latexmk
 script:
 - mkdir _build
-- pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build l2kurz-Tutorium.tex
+- latexmk -f -outdir=_build l2kurz-Tutorium.tex
 deploy:
   provider: releases
   api_key:
