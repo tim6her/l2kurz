@@ -1,4 +1,5 @@
 # LaTeX-Tutorium
+![status](https://travis-ci.org/tim6her/l2kurz.svg?branch=master)
 
 Dieses Dokument basiert auf
 

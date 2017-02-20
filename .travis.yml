@@ -1,0 +1,17 @@
+sudo: required
+dist: trusty
+before_install:
+- sudo apt-get -qq update && sudo apt-get install -y texlive-fonts-recommended
+  texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended
+  texlive-lang-german lmodern
+script:
+- mkdir _build
+- pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build l2kurz-Tutorium.tex
+deploy:
+  provider: releases
+  api_key:
+    secure: l54bqOaNB7ZV77CmRPGJBBBMCqpjJZMXFrrBDt31nHiG4SYnTw6ijUrjAoDbpeSIZ30rQ3YGRsuQ08CmUkk8iOs7kGbOzYfyA+r+5BDL5HaW8oL/NnmWIfz/Erf6psEGqBktZcec39nbBn5VT/tDzhzYES7TiC8+JYGtu9FnJCbdSHq51ys4WqCrgXVH6pRg9yDdAlUUOnB6HziOg4cUjUwXxJ2JL36JRNs4lSnb4puW3XIUx4UIEkK/7ZkwyjomUrDbNNBByF+LG+p2IGORPlGyZj/UkgpMW0Tf97rC5HfjsWAJSPC9Axu6F1RstKYd5PHKy449onugajGbShq11wIcKhsuzWnaAAuK3Zzrg5uZSzUKOn6EFeB5OAW1nH0gLC5skkDLDrO1Rr8sFJvEPZyz+xz3smHAfM/T90NxcUB/n9YTOr0gamADfMFvD8FYj7Y+ByC+2OXe41Tf9oBK5JrUVR2Hg3+RKDY/UjOTjjWyeZQ8BRYF0TJ/1Qc6YB/I1FiSPr1Krw6ED+68v5PGcOmHsDmxtQdUyrP+ZGXWyN2WHWsENd/F1iavfyJHQtm5mNfANREQC0BFJYhExKi8Erel+MzU0WLD5lUpIzT23fsudRcAd2kPjQ2N8QgpAkb/7ZGrYo1VfnoRE5NgGQ7W7vNqTQoYKC82sU2swYSstt4=
+  file: _build/l2kurz-Tutorium.pdf
+  skip_cleanup: true
+  on:
+    tags: true
