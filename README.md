@@ -1,5 +1,6 @@
 # LaTeX-Tutorium
 ![status](https://travis-ci.org/tim6her/l2kurz.svg?branch=master)
+[![GitHub version](https://badge.fury.io/gh/tim6her%2Fl2kurz.svg)](https://badge.fury.io/gh/tim6her%2Fl2kurz)
 
 Dieses Dokument basiert auf
 
