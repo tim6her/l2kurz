@@ -1,0 +1,67 @@
+%!TEX root = l2kurz-Tutorium.tex
+
+\section{Eigene Befehle}
+
+Um eigene Befehle zu definieren, kann man den Befehl
+\begin{lstlisting}
+\newcommand{<name>}[<num>][<default>]{<definiton>}
+\end{lstlisting}
+verwenden.
+Diesem muss zumindest der Name des Befehls und ein \LaTeX-Code als Definition übergeben werden.
+Eigene Befehle zu definieren, hat zwei Vorteile. Zum einen kann man sich so repetitive Tipparbeit ersparen.
+
+\begin{LTXexample}
+\newcommand{\zB}{z.\,B.}
+
+Ich mag Tiere, \zB Vögel.
+\end{LTXexample}
+
+Zum anderen kann es helfen, Inhalt und Design zu trennen.
+Zum Beispiel könnte in Ihrer Arbeit mehrmals die symmetrische Gruppe der Ordnung $ n! $ vorkommen.
+Diese Gruppe wird oft mit $ \mathfrak S_n $ notiert.
+Wenn Sie nun einen Befehl der Form
+\begin{lstlisting}
+\newcommand{\SymG}{\mathfrak S}
+\end{lstlisting}
+erstellen, dann spart dies nicht nur das ständige Ausschreiben des Befehls;
+sie können die Notation für die symmetrische Gruppe nun an einer zentralen Stelle verändern und so dem Wunsch Ihres Betreuers nachkommen, die Gruppe mit $ S_n $ zu bezeichnen.
+
+Besonders praktisch sind eigene Befehle mit Parametern. Schauen wir uns hierzu ein Beispiel an:
+
+Die Notation $ x_1, \ldots, x_n$ für endlich viele Objekte ist in der Mathematik omnipräsent.
+Es bietet sich also an, einen eigenen Befehl für diese Notation zu definieren.
+\begin{LTXexample}
+\newcommand{\seqx}
+        {x_1, \ldots, x_n}
+$\seqx$
+\end{LTXexample}
+
+Dies hat aber einen Nachteil: Was wenn sie auch endlich viele Objekte mit dem Namen $ y_i $ benötigen?
+Zu diesem Zweck, kann man einen Befehl mit einem Parameter definieren, dem man den Namen der Objekt übergibt.
+\begin{lstlisting}
+\newcommand{\seq}[1]{#1_1, \ldots, #1_n}
+\end{lstlisting}
+
+Zwischen den eckigen Klammern haben wir nun die Anzahl der Parameter übergeben und mit \verb|#1| können wir in der Definition des Befehls auf den ersten Parameter zugreifen.
+Wenn wir nun auch den letzten Index flexibel implementieren wollen, könnten wir unserem Befehl einfach noch einen weiteren Parameter übergeben.
+Die Definition des Befehls sieht dann aus wie folgt.
+\begin{lstlisting}
+\newcommand{\seq}[2]{#1_1, \ldots, #1_#2}
+\end{lstlisting}
+
+Beim Aufrufen unseres Befehls müssen nun immer beide Parameter übergeben werden.
+Deshalb kann man mit \verb|\newcommand| einen Standardwert für den \emph{ersten} Parameter festlegen.
+\begin{LTXexample}
+\newcommand{\seq}[2][n]
+        {#2_1, \ldots, #2_#1}
+
+$\seq{x}$ und $\seq[m]{y}$
+\end{LTXexample}
+Beachten Sie, dass die Reihenfolge der Parameter vertauscht wurde.
+
+\LaTeX{} erlaubt es nicht bereits definierte Befehle mit \verb|\newcommand| zu überschreiben.
+Es gibt einen speziellen Befehl für das Überschreiben von Befehlsdefinitionen:
+\begin{lstlisting}
+\renewcommand{<name>}[<num>][<default>]{<definiton>}
+\end{lstlisting}
+Er verwendet dieselbe Syntax wie \verb|\newcommand|.
