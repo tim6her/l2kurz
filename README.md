@@ -25,8 +25,8 @@ Die in dieser Publikation erwähnten Software- und
 Hardware-Bezeichnungen sind in den meisten Fällen auch eingetragene
 Warenzeichen und unterliegen als solche den gesetzlichen Bestimmungen.
 
-Dieses Dokument wurde mit LaTeX gesetzt. Es ist als Quelltext online
-erhältlich:
+Dieses Dokument wurde mit LaTeX gesetzt. Es ist als Quelltext und im 
+PDF-Format online erhältlich:
 <https://github.com/tim6her/l2kurz>
 
 Das Originaldokument ist als Quelltext und im PDF-Format online
